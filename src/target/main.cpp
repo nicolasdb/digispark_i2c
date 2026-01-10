@@ -1,8 +1,8 @@
 #include <Arduino.h>
+#include "i2c_common.h"
 
-// Quick blink test for Digispark (ATtiny85)
-// On many Digispark boards the onboard LED is wired to P0 (digital 0).
-// This example blinks the LED at 250 ms on / 250 ms off.
+// Target (Digispark ATTiny85) example - previously called "slave" in older docs.
+// Quick blink test to show firmware is running.
 
 const uint8_t LED_PIN = 1; // onboard LED (P1)
 
@@ -10,6 +10,7 @@ void setup() {
   // initialize LED pin
   pinMode(LED_PIN, OUTPUT);
   digitalWrite(LED_PIN, LOW);
+  i2c_init();
 }
 
 void loop() {
