@@ -26,7 +26,16 @@ Common commands:
 
   pio run -e digispark-tiny -t upload
 
+Ping test and address notes:
+
+- By default both envs use `TARGET_ADDR=0x10` (set at build time in `platformio.ini`).
+  You can change that per-env by editing `platformio.ini` (e.g. `-DTARGET_ADDR=0x11`) or add extra envs for different addresses.
+
+- How the ping test works:
+  - Controller writes `0x01` (PING) to the target address, then requests 1 byte.
+  - Target replies with `0x02` (PONG) when it sees a PING.
+
 Notes:
 - The `platformio.ini` uses `build_src_filter` to select which sources are compiled for each environment.
-- Build flags now use `-DROLE_CONTROLLER` and `-DROLE_TARGET`.
-- Add per-env `lib_deps` or `upload_port` in `platformio.ini` as needed.
+- Build flags now include `-DTARGET_ADDR=<addr>` so you can define addresses at build time.
+- On Digispark targets we use `TinyWireS` as the I2C slave implementation.

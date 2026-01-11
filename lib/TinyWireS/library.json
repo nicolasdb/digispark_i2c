@@ -1,0 +1,14 @@
+{
+  "name": "TinyWireS-stub",
+  "version": "0.0.0",
+  "description": "Local stub of TinyWireS for build/test in CI. Replace with upstream library for hardware.",
+  "keywords": ["TinyWireS", "I2C", "attiny"],
+  "authors": [
+    {
+      "name": "local-stub",
+      "email": ""
+    }
+  ],
+  "frameworks": ["arduino"],
+  "platforms": ["atmelavr"]
+}
